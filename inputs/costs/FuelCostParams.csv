@@ -1,0 +1,5 @@
+﻿param,1A,1AS,OWPanamax,OWSuezmax,units
+Dspeed,16,15.4,14.6,15.3,knots
+FuelConsDS,54.9,76.7,48,132.7,tons/day
+FuelConsexp,3,3,3,3,NA
+BunkerFuelCost,600,600,600,600,2013 USD

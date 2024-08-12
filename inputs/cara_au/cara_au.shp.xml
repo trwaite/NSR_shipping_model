@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<metadata>
+	<idinfo>
+		<citation>
+			<citeinfo>
+				<origin>United States Geological Survey (USGS)</origin>
+				<pubdate>2008</pubdate>
+				<title>Circum-Arctic Resource Appraisal (north of the Arctic Circle) Assessment Units</title>
+				<geoform>Downloadable GIS Data</geoform>
+				<pubinfo>
+					<pubplace>Denver, Colorado</pubplace>
+					<publish>U. S. Geological Survey, Central Energy Resources Team</publish>
+				</pubinfo>
+				<onlink>http://energy.usgs.gov/arctic/</onlink>
+				<lworkcit>
+					<citeinfo>
+						<origin>Bird, K.J.</origin>
+						<origin>Charpentier, R.R.</origin>
+						<origin>Gautier, D.L.</origin>
+						<origin>Houseknecht, D.W.</origin>
+						<origin>Klett, T.R.</origin>
+						<origin>Pitman, J.K.</origin>
+						<origin>Moore, T.E.</origin>
+						<origin>Schenk, C.J.</origin>
+						<origin>Tennyson, M.E.</origin>
+						<origin>Wandrey, C.R.</origin>
+						<pubdate>2008</pubdate>
+						<title>Circum-Arctic Resource Appraisal (north of the Arctic Circle) Assessment Units</title>
+						<serinfo>
+							<sername>USGS Fact Sheet</sername>
+							<issue>USGS Fact Sheet 2008-3049</issue>
+						</serinfo>
+						<pubinfo>
+							<pubplace>Denver, Colorado</pubplace>
+							<publish>U.S. Geological Survey, Central Energy Resources Team</publish>
+						</pubinfo>
+						<onlink>http://pubs.usgs.gov/fs/2008/3049/</onlink>
+					</citeinfo>
+				</lworkcit>
+			</citeinfo>
+		</citation>
+		<descript>
+			<abstract>The Assessment Unit is the fundamental unit used in the World Petroleum Resources Project.  The Assessment Unit is defined within the context of the higher-level Total Petroleum System.  The Assessment Unit is shown here as a geographic boundary interpreted, defined, and mapped by the geologist responsible for the province and incorporates a set of known or postulated oil and (or) gas accumulations sharing similar geologic, geographic, and temporal properties within the Total Petroleum System, such as source rock, timing, migration pathways, trapping mechanism, and hydrocarbon type.  The Assessment Unit boundary is defined geologically as the limits of the geologic elements that define the Assessment Unit, such as limits of reservoir rock, geologic structures, source rock, and seal lithologies.</abstract>
+			<purpose>The purpose of these files is to define and illustrate the geographic limit and geologic boundaries of the Assessment Units within the defined Total Petroleum Systems, as required for the USGS World Petroleum Resources Project.  The Assessment Units were used as the fundamental units for the assessment of undiscovered oil and gas.  The assessment unit boundaries define the combined geologic limits of each Assessment Unit and are described and defined in the text portions of this assessment publication.</purpose>
+			<supplinf>Oil and gas assessment units within Circum-Arctic Resource Appraisal, are listed below in Place Keywords by assessment unit number and name. The following is a description of the Online Linkage URLs:  http://pubs.usgs.gov/fs/2008/3049/ -   Circum-Arctic Resource Appraisal: Estimates of Undiscovered Oil and Gas of the Arctic Circle</supplinf>
+		</descript>
+		<timeperd>
+			<timeinfo>
+				<sngdate>
+					<caldate>2008</caldate>
+				</sngdate>
+			</timeinfo>
+			<current>publication date</current>
+		</timeperd>
+		<status>
+			<progress>Complete</progress>
+			<update>As needed</update>
+		</status>
+		<spdom>
+			<bounding>
+				<westbc>-180.00</westbc>
+				<eastbc>180.00</eastbc>
+				<northbc>90.00</northbc>
+				<southbc>48.35</southbc>
+			</bounding>
+		</spdom>
+		<keywords>
+			<theme>
+				<themekt>Central Energy Resources Team Keyword Thesaurus</themekt>
+				<themekey>Circum-Arctic Resource Appraisal</themekey>
+				<themekey>North of the Arctic Circle</themekey>
+				<themekey>Energy Resources</themekey>
+				<themekey>Oil</themekey>
+				<themekey>Natural Gas</themekey>
+				<themekey>Resource Assessment</themekey>
+				<themekey>Earth Science</themekey>
+				<themekey>Natural Resources</themekey>
+				<themekey>U.S. Geological Survey</themekey>
+				<themekey>USGS</themekey>
+				<themekey>Geology</themekey>
+				<themekey>Assessment Unit</themekey>
+				<themekey>Schenk, C.J</themekey>
+			</theme>
+			<theme>
+				<themekt>ArcIMS Metadata Server Theme Codes</themekt>
+				<themekey>geoscientificInformation</themekey>
+			</theme>
+			<theme>
+				<themekt>Gateway to the Earth draft 9 28-Jun-2002</themekt>
+				<themekey>Oil shale resources</themekey>
+				<themekey>Oil sand resources</themekey>
+				<themekey>Natural gas resources</themekey>
+				<themekey>Economic geology</themekey>
+			</theme>
+			<place>
+				<placekt>none</placekt>
+				<placekey>North of the Arctic Circle</placekey>
+				<placekey>Canada</placekey>
+				<placekey>Greenland</placekey>
+				<placekey>Jan Mayen</placekey>
+				<placekey>Norway</placekey>
+				<placekey>Russia</placekey>
+				<placekey>Svalbard</placekey>
+				<placekey>United States</placekey>
+			</place>
+			<place>
+				<placekt>USGS Oil and Gas Provinces</placekt>
+				<placekey>Amerasia Basin</placekey>
+				<placekey>Arctic Alaska</placekey>
+				<placekey>Barents Platform</placekey>
+				<placekey>Chukchi Borderland</placekey>
+				<placekey>East Barents Basin</placekey>
+				<placekey>East Greenland Rift Basins</placekey>
+				<placekey>East Siberian Sea Basin</placekey>
+				<placekey>Eurasia Basin</placekey>
+				<placekey>Franklinian Shelf</placekey>
+				<placekey>Hope Basin</placekey>
+				<placekey>Jan Mayen Microcontinent</placekey>
+				<placekey>Laptev Sea Shelf</placekey>
+				<placekey>Lena-Anabar Basin</placekey>
+				<placekey>Lena-Vilyui Basin</placekey>
+				<placekey>Lomonosov-Makarov</placekey>
+				<placekey>Long Strait</placekey>
+				<placekey>Mezen' Basin</placekey>
+				<placekey>North Chukchi-Wrangel Foreland Basin</placekey>
+				<placekey>North Greenland Sheared Margin</placekey>
+				<placekey>North Kara Basins and Platforms</placekey>
+				<placekey>Northwest Canada Interior Basin</placekey>
+				<placekey>Northwest Laptev Sea Shelf</placekey>
+				<placekey>Norwegian Margin</placekey>
+				<placekey>Novaya Zemlya Basins and Admiralty Arch</placekey>
+				<placekey>Sverdrup Basin</placekey>
+				<placekey>Timan-Pechora Basin</placekey>
+				<placekey>Tunguska Basin</placekey>
+				<placekey>Vilkitskii Basin</placekey>
+				<placekey>West Greenland-East Canada</placekey>
+				<placekey>West Siberian Basin</placekey>
+				<placekey>Yenisey-Khatanga Basin</placekey>
+				<placekey>Yukon Flats</placekey>
+				<placekey>Zyryanka Basin</placekey>
+			</place>
+			<place>
+				<placekt>USGS Oil and Gas Assessment Units (NOGA-2000)</placekt>
+				<placekey>Alaska Passive Margin</placekey>
+				<placekey>Alaska Platform</placekey>
+				<placekey>Alaskan Fold- and Thrust- Belt</placekey>
+				<placekey>Amundsen Basin</placekey>
+				<placekey>Anisin-Novosibirsk Basins</placekey>
+				<placekey>Arctic Norwegian Sea</placekey>
+				<placekey>Baffin Bay Basin</placekey>
+				<placekey>Banks Island-Sverdrup Rim</placekey>
+				<placekey>Barents Platform North</placekey>
+				<placekey>Barents Platform South</placekey>
+				<placekey>Boothia-Cornwallis Uplift</placekey>
+				<placekey>Canada Basin</placekey>
+				<placekey>Canada Passive Margin</placekey>
+				<placekey>Canning-Mackenzie Deformed Margin</placekey>
+				<placekey>Chukchi Borderland</placekey>
+				<placekey>Devonian Reefs and Clastic Wedge</placekey>
+				<placekey>East Laptev Horsts</placekey>
+				<placekey>East Siberian Sea Basin</placekey>
+				<placekey>Eastern Franklinian Shelf</placekey>
+				<placekey>Eurekan Structures</placekey>
+				<placekey>Foredeep Basins</placekey>
+				<placekey>Greater Ungava Fault Zone</placekey>
+				<placekey>Hope Basin</placekey>
+				<placekey>Jameson Land Basin</placekey>
+				<placekey>Jameson Land Basin Subvolcanic Extension</placekey>
+				<placekey>Jan Mayen Microcontinent</placekey>
+				<placekey>Khatanga Saddle</placekey>
+				<placekey>Kolguyev Terrace</placekey>
+				<placekey>Lena Prodelta</placekey>
+				<placekey>Lena-Anabar Basin</placekey>
+				<placekey>Lena-Anabar Basin Updip</placekey>
+				<placekey>Lincoln Sea Basin</placekey>
+				<placekey>Liverpool Land Basin</placekey>
+				<placekey>Long Strait</placekey>
+				<placekey>Lower Paleozoic Subsalt and Carbonate Platform</placekey>
+				<placekey>Main Basin Platform</placekey>
+				<placekey>Makarov Basin Margin</placekey>
+				<placekey>Nansen Basin</placekey>
+				<placekey>Nansen Basin Margin</placekey>
+				<placekey>North Barents Basin</placekey>
+				<placekey>North Chukchi-Wrangel Foreland</placekey>
+				<placekey>North Danmarkshavn Salt Basin</placekey>
+				<placekey>North Kara Basins and Platforms</placekey>
+				<placekey>Northeast Canada Rifted Margin</placekey>
+				<placekey>Northeast Greenland Volcanic Province</placekey>
+				<placekey>Northern Priverkhoyansk Foredeep</placekey>
+				<placekey>Northern West Siberian Onshore Gas</placekey>
+				<placekey>Northwest Greenland Rifted Margin</placekey>
+				<placekey>Northwest Izhma-Pechora Depression</placekey>
+				<placekey>Northwest Laptev Sea Shelf</placekey>
+				<placekey>Northwest Mezen' Basin</placekey>
+				<placekey>Novaya Zemlya Basins and Admiralty Arch</placekey>
+				<placekey>Podvodnikov-Makarov Basins</placekey>
+				<placekey>Siberian Passive Margin</placekey>
+				<placekey>South Barents Basin and Ludlov Saddle</placekey>
+				<placekey>South Danmarkshavn Basin</placekey>
+				<placekey>South Kara Sea Offshore</placekey>
+				<placekey>Sukhan-Motorchun Riphean Rift</placekey>
+				<placekey>Sverdrup Mesozoic</placekey>
+				<placekey>Sverdrup Upper Paleozoic</placekey>
+				<placekey>Thetis Basin</placekey>
+				<placekey>Tunguska Basin</placekey>
+				<placekey>Vilkitskii Basin</placekey>
+				<placekey>Wandel Sea Basin</placekey>
+				<placekey>West Laptev Grabens</placekey>
+				<placekey>Western Barents Margin</placekey>
+				<placekey>Western Franklinian Shelf</placekey>
+				<placekey>Yenisey-Khatanga Basin</placekey>
+				<placekey>Zyryanka Basin</placekey>
+			</place>
+		</keywords>
+		<accconst>none</accconst>
+		<useconst>none</useconst>
+		<ptcontac>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>U.S. Geological Survey, Central Energy Resources Team</cntorg>
+					<cntper>Donald L. Gautier</cntper>
+				</cntorgp>
+				<cntpos>Geologist</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>U.S. Geological Survey, Building 15, 345 Middlefield Rd, MS969</address>
+					<city>Menlo Park</city>
+					<state>California</state>
+					<postal>94025-3561</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>652-239-4909</cntvoice>
+				<cntemail>gautier@usgs.gov</cntemail>
+			</cntinfo>
+		</ptcontac>
+		<browse>
+			<browsen>http://certmapper.cr.usgs.gov/data/we/arctic/graphic/cara_au.jpg</browsen>
+			<browsed>Graphical representation of assessment units in Circum-Arctic Resource Appraisal</browsed>
+			<browset>JPEG</browset>
+		</browse>
+	</idinfo>
+	<dataqual>
+		<attracc>
+			<attraccr>For the Assessment Unit coverage, the eight digit number identifies the USGS-specific Assessment Unit.  The first digit of the code indicates the World region number in which the province resides (5), the following three digits (078) are the North America province number, the following two digits (5078xx) are the Total Petroleum System number, and the last two digits (507802xx) are the Assessment Unit number of that particular Total Petroleum System.  For more detailed assessment results data, refer to the Fact Sheet publication information for the Circum-Arctic Resource Appraisal that is available at the URLs listed in the Online Linkages.  The fractile estimates for the largest oil or gas accumulations are calculated for conventional accumulations and are defined as character fields because they may be blank (not zero) if the accumulation is less than the minimum undiscovered field size used in the assessment.  Assessment units that contain no assessment results attributes are those that were not quantitatively assessed.</attraccr>
+		</attracc>
+		<logic>The Assessment Unit boundary was defined on the basis of the surface and subsurface geology of the petroleum system elements, and oil and gas production, shows, and seeps related to the Assessment Unit.  The province geologist was required to defend the geologic boundaries of each Assessment Unit in a formal geologic and petroleum system review meeting.</logic>
+		<complete>The Assessment Unit was mapped in part on the data contained in the IHS Energy Group, WHCS data base for wells (2006 update).</complete>
+		<posacc>
+			<horizpa>
+				<horizpar>The Assessment Unit boundary represents the gross boundary of the combined geologic elements that comprise the Total Petroleum System. The boundaries of the assessment units were drawn on the basis of geologic characteristics and conditions favorable for hydrocarbon generation and accumulation-such as source, reservoir, and seal rocks; burial, thermal, and migration histories; and trapping mechanisms-that combine to distinguish them from each other.</horizpar>
+			</horizpa>
+		</posacc>
+		<lineage>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>IHS Energy Group</origin>
+						<pubdate>2006</pubdate>
+						<title>PI/Dwights PLUS Well Data</title>
+						<pubinfo>
+							<pubplace>Denver, Colorado</pubplace>
+							<publish>IHS Energy Group</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<typesrc>Digital</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2006</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>2006</srccurr>
+				</srctime>
+				<srccitea>PI/Dwights PLUS Well Data</srccitea>
+				<srccontr>Lat./Long. Points, Final Well Class</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>NRG Associates, Inc.</origin>
+						<pubdate>2006</pubdate>
+						<title>The Significant Oil and Gas Pools of Canada Database</title>
+						<geoform>data Tables</geoform>
+						<pubinfo>
+							<pubplace>Colorado Springs, CO</pubplace>
+							<publish>NRG Associates, Inc.</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<typesrc>CD-ROM</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2006</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>Publication date</srccurr>
+				</srctime>
+				<srccitea>NRG</srccitea>
+				<srccontr>Oil and gas production data</srccontr>
+			</srcinfo>
+			<srcinfo>
+				<srccite>
+					<citeinfo>
+						<origin>United States Geological Survey</origin>
+						<pubdate>2000</pubdate>
+						<title>U.S. Geological Survey World Petroleum Assessment 2000-Description and Results</title>
+						<serinfo>
+							<sername>U.S. Geological Survey Digital Data Series</sername>
+							<issue>DDS-60</issue>
+						</serinfo>
+						<pubinfo>
+							<pubplace>Denver, Colorado</pubplace>
+							<publish>U.S. Geological Survey</publish>
+						</pubinfo>
+					</citeinfo>
+				</srccite>
+				<srcscale>2000000</srcscale>
+				<typesrc>CD-ROM</typesrc>
+				<srctime>
+					<timeinfo>
+						<sngdate>
+							<caldate>2000</caldate>
+						</sngdate>
+					</timeinfo>
+					<srccurr>publication date</srccurr>
+				</srctime>
+				<srccitea>USGS World Energy Assessment Team</srccitea>
+				<srccontr>Province 6117 assessment, digital map data</srccontr>
+			</srcinfo>
+			<procstep>
+				<procdesc>Dataset copied.</procdesc>
+				<srcused>\\Netapp1\noga00\canders\schenk\arctic\spatial\doc\cara_au</srcused>
+				<procdate>20081022</procdate>
+				<proctime>09274500</proctime>
+			</procstep>
+			<procstep><procdesc Sync="TRUE">Metadata imported.</procdesc><srcused Sync="TRUE">C:\DOCUME~1\ggunther\LOCALS~1\Temp\xml2571.tmp</srcused><date Sync="TRUE">20081022</date><time Sync="TRUE">12450500</time></procstep></lineage>
+	</dataqual>
+	<spdoinfo>
+		<direct>Vector</direct>
+		<ptvctinf>
+			<sdtsterm>
+				<sdtstype>Complete chain</sdtstype>
+			</sdtsterm>
+			<sdtsterm>
+				<sdtstype>Entity point</sdtstype>
+			</sdtsterm>
+			<sdtsterm>
+				<sdtstype>GT-polygon composed of chains</sdtstype>
+			</sdtsterm>
+		</ptvctinf>
+	</spdoinfo>
+	<spref>
+		<horizsys>
+			<planar>
+				<mapproj></mapproj>
+				<planci>
+					<plance>coordinate pair</plance>
+					<coordrep>
+						<absres>0.000000</absres>
+						<ordres>0.000000</ordres>
+					</coordrep>
+					<plandu>meters</plandu>
+				</planci>
+			</planar>
+			<geodetic>
+				<horizdn>D_Clarke_1866</horizdn>
+				<ellips>Clarke 1866</ellips>
+				<semiaxis>6378206.400000</semiaxis>
+				<denflat>294.978698</denflat>
+			</geodetic>
+		</horizsys>
+	</spref>
+	<eainfo>
+		<detailed>
+			<enttyp>
+				<enttypl>au"assessunitnum"g.pat or au"assessunitnum"g.dbf</enttypl>
+				<enttypd>Polygon Attribute Table.  For each assessment unit, "assessunitnum" is replaced with the assessment unit.  To keep the size of filenames less than 10 characters, "assessunitnum" does not include the first 2 characters of the region/province number.</enttypd>
+				<enttypds>U.S. Geological Survey</enttypds>
+			</enttyp>
+			<attr>
+				<attrlabl>REG_NUM</attrlabl>
+				<attrdef>Region Number</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource World Regions</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>0</edomv>
+						<edomvd>Ocean</edomvd>
+					</edom>
+					<edom>
+						<edomv>1</edomv>
+						<edomvd>Russia</edomvd>
+					</edom>
+					<edom>
+						<edomv>2</edomv>
+						<edomvd>Middle East and North Africa</edomvd>
+					</edom>
+					<edom>
+						<edomv>3</edomv>
+						<edomvd>Asia Pacific</edomvd>
+					</edom>
+					<edom>
+						<edomv>4</edomv>
+						<edomvd>Europe</edomvd>
+					</edom>
+					<edom>
+						<edomv>5</edomv>
+						<edomvd>North America</edomvd>
+					</edom>
+					<edom>
+						<edomv>6</edomv>
+						<edomvd>Central and South America</edomvd>
+					</edom>
+					<edom>
+						<edomv>7</edomv>
+						<edomvd>Sub-Saharan Africa and Antarctica</edomvd>
+					</edom>
+					<edom>
+						<edomv>8</edomv>
+						<edomvd>South Asia</edomvd>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>REG_NAME</attrlabl>
+				<attrdef>Region Name</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource World Regions</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>Ocean</edomv>
+					</edom>
+					<edom>
+						<edomv>Russia</edomv>
+					</edom>
+					<edom>
+						<edomv>Middle East and North Africa</edomv>
+					</edom>
+					<edom>
+						<edomv>Asia Pacific</edomv>
+					</edom>
+					<edom>
+						<edomv>Europe</edomv>
+					</edom>
+					<edom>
+						<edomv>North America</edomv>
+					</edom>
+					<edom>
+						<edomv>Central and South America</edomv>
+					</edom>
+					<edom>
+						<edomv>Sub-Saharan Africa and Antarctica</edomv>
+					</edom>
+					<edom>
+						<edomv>South Asia</edomv>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>PROVCODE</attrlabl>
+				<attrdef>Province Code</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Provinces</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>1</edomv>
+						<edomvd>Lomonosov-Makarov</edomvd>
+					</edom>
+					<edom>
+						<edomv>2</edomv>
+						<edomvd>Eurasia Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1006</edomv>
+						<edomvd>Mezen' Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1008</edomv>
+						<edomvd>Timan-Pechora Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1050</edomv>
+						<edomvd>East Barents Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1062</edomv>
+						<edomvd>Novaya Zemlya Basins and Admiralty Arch</edomvd>
+					</edom>
+					<edom>
+						<edomv>1070</edomv>
+						<edomvd>North Kara Basins and Platforms</edomvd>
+					</edom>
+					<edom>
+						<edomv>1174</edomv>
+						<edomvd>West Siberian Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1175</edomv>
+						<edomvd>Yenisey-Khatanga Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1176</edomv>
+						<edomvd>Northwest Laptev Sea Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>1200</edomv>
+						<edomvd>Lena-Anabar Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1203</edomv>
+						<edomvd>Tunguska Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1214</edomv>
+						<edomvd>Lena-Vilyui Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1218</edomv>
+						<edomvd>Laptev Sea Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>1252</edomv>
+						<edomvd>Zyryanka Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1254</edomv>
+						<edomvd>East Siberian Sea Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1256</edomv>
+						<edomvd>Vilkitskii Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1258</edomv>
+						<edomvd>North Chukchi-Wrangel Foreland Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>1261</edomv>
+						<edomvd>Long Strait</edomvd>
+					</edom>
+					<edom>
+						<edomv>4012</edomv>
+						<edomvd>Barents Platform</edomvd>
+					</edom>
+					<edom>
+						<edomv>4017</edomv>
+						<edomvd>Norwegian Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>5000</edomv>
+						<edomvd>Arctic Alaska</edomvd>
+					</edom>
+					<edom>
+						<edomv>5002</edomv>
+						<edomvd>Yukon Flats</edomvd>
+					</edom>
+					<edom>
+						<edomv>5078</edomv>
+						<edomvd>Chukchi Borderland</edomvd>
+					</edom>
+					<edom>
+						<edomv>5079</edomv>
+						<edomvd>Amerasia Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>5082</edomv>
+						<edomvd>Hope Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>5200</edomv>
+						<edomvd>East Greenland Rift Basins</edomvd>
+					</edom>
+					<edom>
+						<edomv>5201</edomv>
+						<edomvd>Jan Mayen Microcontinent</edomvd>
+					</edom>
+					<edom>
+						<edomv>5203</edomv>
+						<edomvd>North Greenland Sheared Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>5208</edomv>
+						<edomvd>West Greenland-East Canada</edomvd>
+					</edom>
+					<edom>
+						<edomv>5230</edomv>
+						<edomvd>Franklinian Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>5234</edomv>
+						<edomvd>Sverdrup Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>5242</edomv>
+						<edomvd>Northwest Canada Interior Basin</edomvd>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>PROV_NAME</attrlabl>
+				<attrdef>Province Name</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Provinces</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>Lomonosov-Makarov</edomv>
+					</edom>
+					<edom>
+						<edomv>Eurasia Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Mezen' Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Timan-Pechora Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>East Barents Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Novaya Zemlya Basins and Admiralty Arch</edomv>
+					</edom>
+					<edom>
+						<edomv>North Kara Basins and Platforms</edomv>
+					</edom>
+					<edom>
+						<edomv>West Siberian Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Yenisey-Khatanga Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Laptev Sea Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Lena-Anabar Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Tunguska Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Lena-Vilyui Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Laptev Sea Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Zyryanka Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>East Siberian Sea Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Vilkitskii Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>North Chukchi-Wrangel Foreland Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Long Strait</edomv>
+					</edom>
+					<edom>
+						<edomv>Barents Platform</edomv>
+					</edom>
+					<edom>
+						<edomv>Norwegian Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Arctic Alaska</edomv>
+					</edom>
+					<edom>
+						<edomv>Yukon Flats</edomv>
+					</edom>
+					<edom>
+						<edomv>Chukchi Borderland</edomv>
+					</edom>
+					<edom>
+						<edomv>Amerasia Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Hope Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>East Greenland Rift Basins</edomv>
+					</edom>
+					<edom>
+						<edomv>Jan Mayen Microcontinent</edomv>
+					</edom>
+					<edom>
+						<edomv>North Greenland Sheared Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>West Greenland-East Canada</edomv>
+					</edom>
+					<edom>
+						<edomv>Franklinian Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Sverdrup Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Canada Interior Basin</edomv>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ASSESSCODE</attrlabl>
+				<attrdef>Assessment Unit Code</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Assessment Units</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>10101</edomv>
+						<edomvd>Makarov Basin Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>10201</edomv>
+						<edomvd>Podvodnikov-Makarov Basins</edomvd>
+					</edom>
+					<edom>
+						<edomv>10201</edomv>
+						<edomvd>Podvodnikov-Makarov Basins</edomvd>
+					</edom>
+					<edom>
+						<edomv>10202</edomv>
+						<edomvd>Siberian Passive Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>20101</edomv>
+						<edomvd>Lena Prodelta</edomvd>
+					</edom>
+					<edom>
+						<edomv>20201</edomv>
+						<edomvd>Nansen Basin Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>20301</edomv>
+						<edomvd>Nansen Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>20401</edomv>
+						<edomvd>Amundsen Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>10060101</edomv>
+						<edomvd>Northwest Mezen' Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>10080101</edomv>
+						<edomvd>Northwest Izhma-Pechora Depression</edomvd>
+					</edom>
+					<edom>
+						<edomv>10080102</edomv>
+						<edomvd>Main Basin Platform</edomvd>
+					</edom>
+					<edom>
+						<edomv>10080103</edomv>
+						<edomvd>Foredeep Basins</edomvd>
+					</edom>
+					<edom>
+						<edomv>10500101</edomv>
+						<edomvd>Kolguyev Terrace</edomvd>
+					</edom>
+					<edom>
+						<edomv>10500102</edomv>
+						<edomvd>South Barents Basin and Ludlov Saddle</edomvd>
+					</edom>
+					<edom>
+						<edomv>10500103</edomv>
+						<edomvd>North Barents Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>10620101</edomv>
+						<edomvd>Novaya Zemlya Basins and Admiralty Arch</edomvd>
+					</edom>
+					<edom>
+						<edomv>10700101</edomv>
+						<edomvd>North Kara Basins and Platforms</edomvd>
+					</edom>
+					<edom>
+						<edomv>11740301</edomv>
+						<edomvd>Northern West Siberian Onshore Gas</edomvd>
+					</edom>
+					<edom>
+						<edomv>11740302</edomv>
+						<edomvd>South Kara Sea Offshore</edomvd>
+					</edom>
+					<edom>
+						<edomv>11750101</edomv>
+						<edomvd>Khatanga Saddle</edomvd>
+					</edom>
+					<edom>
+						<edomv>11750201</edomv>
+						<edomvd>Yenisey-Khatanga Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>11760101</edomv>
+						<edomvd>Northwest Laptev Sea Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>12000101</edomv>
+						<edomvd>Lena-Anabar Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>12000102</edomv>
+						<edomvd>Lena-Anabar Basin Updip</edomvd>
+					</edom>
+					<edom>
+						<edomv>12000103</edomv>
+						<edomvd>Sukhan-Motorchun Riphean Rift</edomvd>
+					</edom>
+					<edom>
+						<edomv>12030101</edomv>
+						<edomvd>Tunguska Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>12140101</edomv>
+						<edomvd>Northern Priverkhoyansk Foredeep</edomvd>
+					</edom>
+					<edom>
+						<edomv>12180101</edomv>
+						<edomvd>West Laptev Grabens</edomvd>
+					</edom>
+					<edom>
+						<edomv>12180102</edomv>
+						<edomvd>East Laptev Horsts</edomvd>
+					</edom>
+					<edom>
+						<edomv>12180201</edomv>
+						<edomvd>Anisin-Novosibirsk Basins</edomvd>
+					</edom>
+					<edom>
+						<edomv>12520101</edomv>
+						<edomvd>Zyryanka Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>12540101</edomv>
+						<edomvd>East Siberian Sea Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>12560101</edomv>
+						<edomvd>Vilkitskii Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>12580101</edomv>
+						<edomvd>North Chukchi-Wrangel Foreland</edomvd>
+					</edom>
+					<edom>
+						<edomv>12610101</edomv>
+						<edomvd>Long Strait</edomvd>
+					</edom>
+					<edom>
+						<edomv>40120101</edomv>
+						<edomvd>Barents Platform North</edomvd>
+					</edom>
+					<edom>
+						<edomv>40120102</edomv>
+						<edomvd>Barents Platform South</edomvd>
+					</edom>
+					<edom>
+						<edomv>40170104</edomv>
+						<edomvd>Arctic Norwegian Sea</edomvd>
+					</edom>
+					<edom>
+						<edomv>40170201</edomv>
+						<edomvd>Western Barents Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>50000101</edomv>
+						<edomvd>Alaska Platform</edomvd>
+					</edom>
+					<edom>
+						<edomv>50000102</edomv>
+						<edomvd>Alaskan Fold- and Thrust- Belt</edomvd>
+					</edom>
+					<edom>
+						<edomv>50780201</edomv>
+						<edomvd>Chukchi Borderland</edomvd>
+					</edom>
+					<edom>
+						<edomv>50790101</edomv>
+						<edomvd>Canning-Mackenzie Deformed Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>50790102</edomv>
+						<edomvd>Alaska Passive Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>50790103</edomv>
+						<edomvd>Canada Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>50790104</edomv>
+						<edomvd>Canada Passive Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>50820101</edomv>
+						<edomvd>Hope Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000101</edomv>
+						<edomvd>North Danmarkshavn Salt Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000102</edomv>
+						<edomvd>South Danmarkshavn Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000103</edomv>
+						<edomvd>Northeast Greenland Volcanic Province</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000201</edomv>
+						<edomvd>Thetis Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000202</edomv>
+						<edomvd>Liverpool Land Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000301</edomv>
+						<edomvd>Jameson Land Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52000401</edomv>
+						<edomvd>Jameson Land Basin Subvolcanic Extension</edomvd>
+					</edom>
+					<edom>
+						<edomv>52010101</edomv>
+						<edomvd>Jan Mayen Microcontinent</edomvd>
+					</edom>
+					<edom>
+						<edomv>52030101</edomv>
+						<edomvd>Lincoln Sea Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52030102</edomv>
+						<edomvd>Wandel Sea Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52080101</edomv>
+						<edomvd>Eurekan Structures</edomvd>
+					</edom>
+					<edom>
+						<edomv>52080102</edomv>
+						<edomvd>Northwest Greenland Rifted Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52080103</edomv>
+						<edomvd>Northeast Canada Rifted Margin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52080104</edomv>
+						<edomvd>Baffin Bay Basin</edomvd>
+					</edom>
+					<edom>
+						<edomv>52080105</edomv>
+						<edomvd>Greater Ungava Fault Zone</edomvd>
+					</edom>
+					<edom>
+						<edomv>52300101</edomv>
+						<edomvd>Western Franklinian Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>52300102</edomv>
+						<edomvd>Eastern Franklinian Shelf</edomvd>
+					</edom>
+					<edom>
+						<edomv>52300103</edomv>
+						<edomvd>Boothia-Cornwallis Uplift</edomvd>
+					</edom>
+					<edom>
+						<edomv>52340101</edomv>
+						<edomvd>Sverdrup Mesozoic</edomvd>
+					</edom>
+					<edom>
+						<edomv>52340201</edomv>
+						<edomvd>Sverdrup Upper Paleozoic</edomvd>
+					</edom>
+					<edom>
+						<edomv>52340301</edomv>
+						<edomvd>Banks Island-Sverdrup Rim</edomvd>
+					</edom>
+					<edom>
+						<edomv>52420101</edomv>
+						<edomvd>Devonian Reefs and Clastic Wedge</edomvd>
+					</edom>
+					<edom>
+						<edomv>52420201</edomv>
+						<edomvd>Lower Paleozoic Subsalt and Carbonate Platform</edomvd>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ASSESSNAME</attrlabl>
+				<attrdef>Assessment Unit Name</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Assessment Units</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>Alaska Passive Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Alaska Platform</edomv>
+					</edom>
+					<edom>
+						<edomv>Alaskan Fold- and Thrust- Belt</edomv>
+					</edom>
+					<edom>
+						<edomv>Amundsen Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Anisin-Novosibirsk Basins</edomv>
+					</edom>
+					<edom>
+						<edomv>Arctic Norwegian Sea</edomv>
+					</edom>
+					<edom>
+						<edomv>Baffin Bay Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Banks Island-Sverdrup Rim</edomv>
+					</edom>
+					<edom>
+						<edomv>Barents Platform North</edomv>
+					</edom>
+					<edom>
+						<edomv>Barents Platform South</edomv>
+					</edom>
+					<edom>
+						<edomv>Boothia-Cornwallis Uplift</edomv>
+					</edom>
+					<edom>
+						<edomv>Canada Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Canada Passive Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Canning-Mackenzie Deformed Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Chukchi Borderland</edomv>
+					</edom>
+					<edom>
+						<edomv>Devonian Reefs and Clastic Wedge</edomv>
+					</edom>
+					<edom>
+						<edomv>East Laptev Horsts</edomv>
+					</edom>
+					<edom>
+						<edomv>East Siberian Sea Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Eastern Franklinian Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Eurekan Structures</edomv>
+					</edom>
+					<edom>
+						<edomv>Foredeep Basins</edomv>
+					</edom>
+					<edom>
+						<edomv>Greater Ungava Fault Zone</edomv>
+					</edom>
+					<edom>
+						<edomv>Hope Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Jameson Land Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Jameson Land Basin Subvolcanic Extension</edomv>
+					</edom>
+					<edom>
+						<edomv>Jan Mayen Microcontinent</edomv>
+					</edom>
+					<edom>
+						<edomv>Khatanga Saddle</edomv>
+					</edom>
+					<edom>
+						<edomv>Kolguyev Terrace</edomv>
+					</edom>
+					<edom>
+						<edomv>Lena Prodelta</edomv>
+					</edom>
+					<edom>
+						<edomv>Lena-Anabar Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Lena-Anabar Basin Updip</edomv>
+					</edom>
+					<edom>
+						<edomv>Lincoln Sea Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Liverpool Land Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Long Strait</edomv>
+					</edom>
+					<edom>
+						<edomv>Lower Paleozoic Subsalt and Carbonate Platform</edomv>
+					</edom>
+					<edom>
+						<edomv>Main Basin Platform</edomv>
+					</edom>
+					<edom>
+						<edomv>Makarov Basin Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Nansen Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Nansen Basin Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>North Barents Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>North Chukchi-Wrangel Foreland</edomv>
+					</edom>
+					<edom>
+						<edomv>North Danmarkshavn Salt Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>North Kara Basins and Platforms</edomv>
+					</edom>
+					<edom>
+						<edomv>Northeast Canada Rifted Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Northeast Greenland Volcanic Province</edomv>
+					</edom>
+					<edom>
+						<edomv>Northern Priverkhoyansk Foredeep</edomv>
+					</edom>
+					<edom>
+						<edomv>Northern West Siberian Onshore Gas</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Greenland Rifted Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Izhma-Pechora Depression</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Laptev Sea Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Northwest Mezen' Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Novaya Zemlya Basins and Admiralty Arch</edomv>
+					</edom>
+					<edom>
+						<edomv>Podvodnikov-Makarov Basins</edomv>
+					</edom>
+					<edom>
+						<edomv>Podvodnikov-Makarov Basins</edomv>
+					</edom>
+					<edom>
+						<edomv>Siberian Passive Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>South Barents Basin and Ludlov Saddle</edomv>
+					</edom>
+					<edom>
+						<edomv>South Danmarkshavn Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>South Kara Sea Offshore</edomv>
+					</edom>
+					<edom>
+						<edomv>Sukhan-Motorchun Riphean Rift</edomv>
+					</edom>
+					<edom>
+						<edomv>Sverdrup Mesozoic</edomv>
+					</edom>
+					<edom>
+						<edomv>Sverdrup Upper Paleozoic</edomv>
+					</edom>
+					<edom>
+						<edomv>Thetis Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Tunguska Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Vilkitskii Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Wandel Sea Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>West Laptev Grabens</edomv>
+					</edom>
+					<edom>
+						<edomv>Western Barents Margin</edomv>
+					</edom>
+					<edom>
+						<edomv>Western Franklinian Shelf</edomv>
+					</edom>
+					<edom>
+						<edomv>Yenisey-Khatanga Basin</edomv>
+					</edom>
+					<edom>
+						<edomv>Zyryanka Basin</edomv>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ASSESSTYPE</attrlabl>
+				<attrdef>Assessment Unit Type</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Assessment Unit Types.  Both conventional and continuous accumulations are assessed</attrdefs>
+				<attrdomv>
+					<edom>
+						<edomv>Conventional</edomv>
+					</edom>
+					<edom>
+						<edomv>Continuous</edomv>
+					</edom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ASSESSPROB</attrlabl>
+				<attrdef>Assessment Unit Probability</attrdef>
+				<attrdefs>U.S. Geological Survey Energy Resource Assessment Unit Probabilities</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OIL_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume of undiscovered oil in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OIL_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume of undiscovered oil in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OIL_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume of undiscovered oil in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of undiscovered oil in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of undiscovered oil in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ADGAS_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume of undiscovered gas (associated/dissolved gas) in oil accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ADGAS_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume of undiscovered gas (associated/dissolved gas) in oil accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ADGAS_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume of undiscovered gas (associated/dissolved gas) in oil accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ADGASMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of undiscovered gas (associated/dissolved gas) in oil accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>ADGASSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of undiscovered gas (associated/dissolved gas) in oil accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NGL_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume of undiscovered natural gas liquids (NGL) in oil accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NGL_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume of undiscovered natural gas liquids (NGL) in oil accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NGL_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume of undiscovered natural gas liquids (NGL) in oil accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NGLMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of undiscovered natural gas liquids (NGL) in oil accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NGLSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of undiscovered natural gas liquids (NGL) in oil accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGAS_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume of undiscovered gas (non-associated gas) in gas accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGAS_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume of undiscovered gas (non-associated gas) in gas accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGAS_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume of undiscovered gas (non-associated gas) in gas accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGASMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of undiscovered gas (non-associated gas) in gas accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGASSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of undiscovered gas (non-associated gas) in gas accumulations in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGL_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume of undiscovered liquids in gas accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGL_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume of undiscovered liquids in gas accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGL_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume of undiscovered liquids in gas accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGLMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of undiscovered liquids in gas accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>NAGLSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of undiscovered liquids in gas accumulations in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>stored as a floating-point value</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILLG_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume for the largest expected undiscovered conventional oil accumulation in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILLG_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume for the largest expected undiscovered conventional oil accumulation in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILLG_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume for the largest expected undiscovered conventional oil accumulation in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILLGMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of the largest expected undiscovered conventional oil accumulation in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>OILLGSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of the largest expected undiscovered conventional oil accumulation in the assessment unit (in millions of barrels)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>GASLG_F95</attrlabl>
+				<attrdef>95% probability of greater than this volume for the largest expected undiscovered conventional gas accumulation in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>GASLG_F50</attrlabl>
+				<attrdef>50% probability of greater than this volume for the largest expected undiscovered conventional gas accumulation in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>GASLG_F5</attrlabl>
+				<attrdef>5% probability of greater than this volume for the largest expected undiscovered conventional gas accumulation in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>GASLGMEAN</attrlabl>
+				<attrdef>The mean estimate of volume of the largest expected undiscovered conventional gas accumulation in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+			<attr>
+				<attrlabl>GASLGSTDEV</attrlabl>
+				<attrdef>The standard deviation of the distribution of volume of the largest expected undiscovered conventional gas accumulation in the assessment unit (in billions of cubic feet)</attrdef>
+				<attrdefs>USGS DDS-69; USGS DDS-60, Chpt. AM; USGS Bulletin 2165</attrdefs>
+				<attrdomv>
+					<udom>defined as character field; may be blank (not zero) if the accumulation is less than the minumum undiscovered field size used in the assessment</udom>
+				</attrdomv>
+			</attr>
+		</detailed>
+	</eainfo>
+	<distinfo>
+		<distrib>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>USGS Information Services</cntorg>
+				</cntorgp>
+				<cntaddr>
+					<addrtype>mailing address</addrtype>
+					<address>Box 25286 Denver Federal Center</address>
+					<city>Denver</city>
+					<state>Colorado</state>
+					<postal>80225</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntvoice>1-888-ASK-USGS</cntvoice>
+				<cntfax>303-202-4693</cntfax>
+				<cntemail>ask@usgs.gov</cntemail>
+			</cntinfo>
+		</distrib>
+		<resdesc>Downloadable Data</resdesc>
+		<distliab>Although these data have been processed successfully on a computer system at the U.S. Geological Survey, no warranty expressed or implied is made regarding the display or utility of the data on any other system, or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.  The U.S. Geological survey shall not be held liable for improper or incorrect use of the data described and/or contained herein. Any use of trade, product, or firm names is for descriptive purposes only and does not imply endorsement by the U.S. Government.  Although this information product, for the most part, is in the public domain, it may also contain copyrighted materials as noted in the text. Permission to reproduce copyrighted items for other than personal use must be secured from the copyright owner.</distliab>
+		<stdorder>
+			<digform>
+				<digtinfo>
+					<formname>Shapefile</formname>
+					<formcont>Assessment unit geographic features and attribute data</formcont>
+					<filedec>unzip</filedec>
+				</digtinfo>
+				<digtopt>
+					<onlinopt>
+						<computer>
+							<networka>
+								<networkr>http://certmapper.cr.usgs.gov/data/we/arctic/spatial/shape/cara_au.zip</networkr>
+							</networka>
+						</computer>
+						<accinstr>The URL above links to a compressed file containing one or more Assessment Unit Boundaries.</accinstr>
+					</onlinopt>
+				</digtopt>
+			</digform>
+			<digform>
+				<digtinfo>
+					<formname>Image Map Service</formname>
+					<formvern>9x</formvern>
+					<formspec>ArcIMS Image Map Service</formspec>
+					<formcont>A web-based interactive mapping system that accesses an ArcIMS Map Service running on certmapper.cr.usgs.gov</formcont>
+				</digtinfo>
+				<digtopt>
+					<onlinopt>
+						<computer>
+							<networka>
+								<networkr>http://energy.usgs.gov/arctic</networkr>
+							</networka>
+						</computer>
+						<accinstr>This URL links to a web-based interactive mapping system that accesses an ArcIMS Image Map Service.  The mapservice can also be accessed using any custom client that adheres to the protocol specified through ArcXML.</accinstr>
+					</onlinopt>
+				</digtopt>
+			</digform>
+			<fees>None</fees>
+			<ordering>These products can be downloaded individually using any one of the Network_Resource_Name URLs above. Each of these URLs provide access to various formats of these data.</ordering>
+		</stdorder>
+	</distinfo>
+	<metainfo>
+		<metd>20081006</metd>
+		<metrd>20081006</metrd>
+		<metc>
+			<cntinfo>
+				<cntorgp>
+					<cntorg>U.S. Geological Survey, Central Energy Resources Team</cntorg>
+					<cntper>Chris Anderson</cntper>
+				</cntorgp>
+				<cntpos>GIS Analyst</cntpos>
+				<cntaddr>
+					<addrtype>mailing and physical address</addrtype>
+					<address>U.S. Geological Survey, Box 25046, MS 939, Denver Federal Center</address>
+					<city>Denver</city>
+					<state>Colorado</state>
+					<postal>80225</postal>
+					<country>USA</country>
+				</cntaddr>
+				<cntemail>datamgt@usgs.gov</cntemail>
+				<cntinst>For inquiries regarding this document, please include the metadata contact person's name, dataset name, and publication series and number.</cntinst>
+			</cntinfo>
+		</metc>
+		<metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+		<metstdv>FGDC-STD-001-1998</metstdv>
+	</metainfo>
+	<Esri><MetaID>{3E34B824-889C-41F6-B66B-EFC6FD4C95A1}</MetaID><CreaDate>20081022</CreaDate><CreaTime>12450500</CreaTime><SyncOnce>TRUE</SyncOnce></Esri></metadata>
