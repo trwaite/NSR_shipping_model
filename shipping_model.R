@@ -3,7 +3,7 @@ library(tidyverse)
 print("STARTING...")
 
 # constants
-CostScale <- 1000 # convert from dollars to thousands of dollars
+CostScale <- 1e-6 # convert from dollars to millions of dollars for choice function
 beta_1 <- -0.5 # logit choice function parameter
 delta <- 0.000001 # small pertubation for calibration of fuel consumption
 Co2emissnFactor <- 3179 # kg CO2 per tonne of fuel consumed
@@ -18,6 +18,9 @@ Conv_m_cm <- 100
 conv_nm_km <- 1.852 # nautical miles to km
 conv_rub_usd_2014 <- 0.02649 #https://www.exchange-rates.org/exchange-rate-history/rub-usd-2014-12-19
 conv_kg_kt <- 10^-6
+conv_mmbtu_GJ <- 1.055
+conv_ton_mmbtu_bunker <- 40.2
+conv_usd_1975_2015 <- 3.51
 
 
 # variables
@@ -40,8 +43,10 @@ if(!dir.exists("figures")){
   dir.create("figures")
 }
 
+# To run the model for a single year (useful for testing since the model
+# takes a lot of time and memory to run for all years)
 eval_single_year <- F
-single_year <- 2020
+single_year <- 2100
 
 #...............................................................................
 # read in inputs ---------------------------------------------------------------
@@ -72,7 +77,7 @@ subAUSubZoneMap <- read_csv("inputs/mappings/subAUSubZoneMap.csv")
 
 # price inflator/deflator
 price_index <- read_csv("inputs/costs/price_conversions.csv",
-                              skip = 1)
+                        skip = 1)
 price_conversion <- price_index$`price deflator`
 names(price_conversion) <- price_index$year
 
@@ -83,6 +88,9 @@ IceBreakCosts_v2 <- read_csv("inputs/costs/IceBreakCosts_v2.csv")
 FuelCostParams_pre <- read_csv("inputs/costs/FuelCostParams.csv") %>%
   pivot_longer(-c(param, units), names_to = "ship_type", values_to = "value") %>%
   filter(ship_type %in% ship_types)
+
+FuelPrice_GCAM <- read_csv("inputs/costs/fuel_prices_GCAM.csv") %>%
+  rename(scen = scenario)
 
 OperatingCosts <- read_csv("inputs/costs/OperatingCosts.csv") %>%
   pivot_longer(cols = -units, names_to = "route", values_to = "value")
@@ -146,33 +154,39 @@ IceBreakCosts_v2_ship <- IceBreakCosts_v2 %>%
   # convert from rub to usd and get total tariff per ship
   # (tariffs are given on a per tonne basis)
   mutate(fee = fee*conv_rub_usd_2014*value*Conv_BBL_TOE*price_conversion["2015"]/price_conversion["2014"],
-         units = "USD_2014") %>%
+         units = "2015$") %>%
   select(-units.x, -units.y)
 
 
-# convert costs to thousands of 2015 dollars
+# convert costs to 2015 dollars
 FuelCostParams <- FuelCostParams_pre %>%
-  mutate(value = case_when(param == "BunkerFuelCost" ~ value/CostScale*price_conversion["2015"]/price_conversion["2013"],
-                           T ~ value),
-         units = case_when(param == "BunkerFuelCost" ~ "thousand 2015$/ton",
-                           T ~ units))
+  filter(param != "BunkerFuelCost")
+# mutate(value = case_when(param == "BunkerFuelCost" ~ value*price_conversion["2015"]/price_conversion["2013"],
+#                          T ~ value),
+#        units = case_when(param == "BunkerFuelCost" ~ "2015$/ton",
+#                          T ~ units))
 
-OperatingCosts$value <- OperatingCosts$value/CostScale*price_conversion["2015"]/price_conversion["2016"]
-OperatingCosts$units <- "thousand 2015$"
+# convert fuel price units and extrapolate to all years
+Fuel_Price_GCAM_allYears <- FuelPrice_GCAM %>%
+  complete(nesting(scen, units), year = SIT_years) %>%
+  group_by(scen) %>%
+  mutate(price = gcamdata::approx_fun(year, price, rule = 2)*conv_mmbtu_GJ*conv_ton_mmbtu_bunker*conv_usd_1975_2015,
+         Units = "2015$/ton") %>%
+  ungroup()
 
-IceBreakCosts_v2_ship$fee <- IceBreakCosts_v2_ship$fee/CostScale
-IceBreakCosts_v2_ship$units <- "thousand 2015$"
 
-CanalFee$value <- CanalFee$value/CostScale
-CanalFee$units <- "thousand 2015$"
+OperatingCosts$value <- OperatingCosts$value*price_conversion["2015"]/price_conversion["2016"]
+OperatingCosts$units <- "2015$"
+
+CanalFee$units <- "2015$"
 
 # linearly extrapolate carbon prices to annual,
 # convert to thousand 2015$ per tCO2
 # map to scenarios, rcps,
 CarbonPrice_annual <- CarbonPrice %>%
   complete(nesting(scenario, Units), year = SIT_years) %>%
-  mutate(cPrice = gcamdata::approx_fun(year, cPrice, rule = 2)*price_conversion["2015"]/price_conversion["1990"]/conv_C_CO2/CostScale,
-         Units = "thousand 2015$/tCO2") %>%
+  mutate(cPrice = gcamdata::approx_fun(year, cPrice, rule = 2)*price_conversion["2015"]/price_conversion["1990"]/conv_C_CO2,
+         Units = "2015$/tCO2") %>%
   left_join(MapGCAMscenEnsmbl, by = c("scenario" = "GCAMscen")) %>%
   filter(year %in% SIT_years) %>%
   select(scen, ens, rcp, year, cPrice, Units)
@@ -180,7 +194,7 @@ CarbonPrice_annual <- CarbonPrice %>%
 # and add zeros for non-policy scenarios
 CarbonPrice_annual_allScen <-
   expand_grid(year = SIT_years, rcp = RCPs, ens = ensembles, scen = "Ref",
-              cPrice = 0, Units = "thousand 2015$/tCO2") %>%
+              cPrice = 0, Units = "2015$/tCO2") %>%
   rbind(CarbonPrice_annual)
 
 
@@ -322,13 +336,13 @@ TotFuelConsOutsideNSR <- FuelConsOutsideNSR %>%
   select(ship_type, dir, units, value)
 
 # calculate total fuel costs of travel outside the NSR
-TotFuelCostOutsideNSR <- FuelCostParams %>%
-  filter(param == "BunkerFuelCost") %>%
-  rename(BunkerFuelCost = value) %>%
+TotFuelCostOutsideNSR <- Fuel_Price_GCAM_allYears %>%
+  #filter(param == "BunkerFuelCost") %>%
+  gcamdata::repeat_add_columns(tibble(ship_type = c("1A", "1AS"))) %>%
   left_join(TotFuelConsOutsideNSR, by = "ship_type") %>%
-  mutate(value = value*BunkerFuelCost,
-         units = "thousand 2015$") %>%
-  select(dir, ship_type, units, value)
+  mutate(value = value*price,
+         units = "2015$") %>%
+  select(year, scen, dir, ship_type, units, value)
 
 #...............................................................................
 # Main model -------------------------------------------------------------------
@@ -431,7 +445,7 @@ FuelCons_subz <- Speed_subz %>%
               pivot_wider(names_from = "param", values_from = "value"),
             by = "ship_type") %>%
   mutate(fuel_cons = FuelConsDS*(speed/Dspeed + delta)^FuelConsexp) %>%
-  select(year, month, ens, rcp, ship_type, subzone, fuel_cons, BunkerFuelCost)
+  select(year, month, ens, rcp, ship_type, subzone, fuel_cons)
 
 ## Emissions ===================================================================
 
@@ -468,6 +482,7 @@ Emissions_subz_IB <- Days_subz %>%
   left_join(SeaIceThickESM_EnsRCP_subzone %>% rename(SIT = value),
             by = c("year", "month", "subzone", "ens", "rcp")) %>%
   mutate(SIT = SIT/100,
+         # ice breaker fuel consumption equation (see SI section 1.5)
          fuel_cons_IB = 13.3*(.375+.625*(3/(15.479-1.914*SIT-10.541*SIT^2))),
          emiss_IB = fuel_cons_IB*days*Co2emissnFactor,
          emiss_IB = emiss_IB*conv_kg_kt) %>%
@@ -508,18 +523,22 @@ Emiss_total_perTrip <- Emissions_subz %>%
 FuelCost_subz <- FuelCons_subz %>%
   left_join(Days_subz, by = c("year", "month", "ens", "rcp", "ship_type",
                               "subzone")) %>%
-  mutate(cost = fuel_cons*days*BunkerFuelCost,
-         units = "thousand 2015$") %>%
-  select(-c(fuel_cons, days, BunkerFuelCost))
+  left_join(Fuel_Price_GCAM_allYears, by = "year") %>%
+  # filter out rcp 8.5 Pol (does not exist)
+  filter(!(rcp == "8p5" & scen == "Pol")) %>%
+  mutate(cost = fuel_cons*days*price,
+         units = "2015$") %>%
+  select(-c(fuel_cons, days, price))
 
 # calculate total fuel cost to traverse whole route from each AU
 FuelCost_M_AU <- FuelCost_subz %>%
   left_join(filter(AUSubZoneEastWest, traversed), by = "subzone") %>%
   select(-traversed) %>%
-  group_by(year, month, ens, rcp, ship_type, subAU, dir, units) %>%
+  group_by(year, month, ens, rcp, scen, ship_type, subAU, dir, units) %>%
   summarize(cost = sum(cost)) %>%
   ungroup() %>%
-  left_join(TotFuelCostOutsideNSR, by = c("ship_type", "dir", "units")) %>%
+  left_join(TotFuelCostOutsideNSR,
+            by = c("year", "ship_type", "dir", "units", "scen")) %>%
   mutate(cost = cost + value) %>%
   select(-value)
 
@@ -531,7 +550,8 @@ emiss_costs <- Emiss_total_perTrip %>%
   # multiplying by 1000 here because emissions are in ktCO2 but carbon prices
   # are in $/tCO2
   mutate(emiss_cost = emiss*1000*cPrice,
-         units = "thousand 2015$")
+         units = "2015$") %>%
+  select(-Units)
 
 
 ### other costs ################################################################
@@ -553,7 +573,10 @@ EscortCost_AU2 <- filter(AUSubZoneEastWest, traversed) %>%
   ungroup() %>%
   # join with ice breaker costs and apply the relevant fee
   left_join(IceBreakCosts_v2_ship, by = c("month", "ship_type", "n_zones")) %>%
-  select(year, month, ens, rcp, ship_type, dir, subAU, units, escort_cost = fee)
+  select(year, month, ens, rcp, ship_type, dir, subAU, units, escort_cost = fee) %>%
+  # repeat over scenarios (does not vary between ref and pol)
+  gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
+  filter(!(scen == "Pol" & rcp == "8p5"))
 
 # operating costs
 
@@ -573,61 +596,72 @@ DaysRoute_tot <- DaysRoute_totNSR %>%
 
 OperateCosts_m_AU <- DaysRoute_tot %>%
   # using rteA1 costs for both east and West routes
-  # TODO: check with Siwa on whether we need to fix this
   mutate(route = "rteA1") %>%
   left_join(OperatingCosts, by = "route") %>%
   mutate(operate_cost = value*days) %>%
-  select(-c(days, value, route))
+  select(-c(days, value, route)) %>%
+  # repeat over scenarios (does not vary between ref and pol)
+  gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
+  filter(!(scen == "Pol" & rcp == "8p5"))
 
 # canal fee costs
 CanalFeeCosts_AU <- OperateCosts_m_AU %>%
-  select(year, month, ens, rcp, ship_type, dir, subAU) %>%
+  select(year, month, ens, rcp, scen, ship_type, dir, subAU) %>%
   filter(dir == "West") %>%
   mutate(route = "rteNA1") %>%
   left_join(CanalFee, by = "route") %>%
   rename(canal_fee = value) %>%
   select(-route)
+# repeat over scenarios (does not vary between ref and pol)
+#gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
+#filter(!(scen == "Pol" & rcp == "8p5"))
 
-# add up all costs (without emissions cost)
-TotalCosts_AU_noC_ref <- OperateCosts_m_AU %>%
+# add up all costs
+TotalCosts_AU_sep <- OperateCosts_m_AU %>%
   left_join(rename(FuelCost_M_AU, fuel_cost = cost),
-            by = c('year', "month", "ens", "rcp", "ship_type",
+            by = c('year', "month", "ens", "rcp", "scen", "ship_type",
                    "subAU", "dir", 'units')) %>%
   left_join(CanalFeeCosts_AU,
-            by = c('year', "month", "ens", "rcp", "ship_type",
+            by = c('year', "month", "ens", "rcp", "scen", "ship_type",
                    "subAU", "dir", "units")) %>%
   left_join(EscortCost_AU2,
-            by = c('year', "month", "ens", "rcp", "ship_type",
+            by = c('year', "month", "ens", "rcp", "scen", "ship_type",
+                   "subAU", "dir", "units")) %>%
+  left_join(emiss_costs,
+            by = c("year", "month", "ens", "rcp", "scen", "ship_type",
                    "subAU", "dir", "units")) %>%
   replace_na(list(canal_fee = 0, escort_cost = 0)) %>%
-  # mutate(cost = operate_cost + canal_fee + escort_cost + fuel_cost) %>%
-  # select(-c(operate_cost, canal_fee, escort_cost, fuel_cost))
-  mutate(scen = "Ref")
+  select(-c(emiss, cPrice)) %>%
+  mutate(cost = operate_cost + canal_fee + escort_cost + fuel_cost + emiss_cost)
+
+
+TotalCosts_AU <- TotalCosts_AU_sep %>%
+  select(-c(operate_cost, canal_fee, escort_cost, fuel_cost, emiss_cost))
 
 # add in the 2p6 policy scenario (above costs don't vary by scenario, but
 # emissions costs below do)
-TotalCosts_AU_prop <- TotalCosts_AU_noC_ref %>%
-  filter(rcp == "2p6") %>%
-  mutate(scen = "Pol") %>%
-  rbind(TotalCosts_AU_noC_ref) %>%
-  left_join(emiss_costs,
-            by = c("year", "month", "scen", "rcp", "ens",
-                   "ship_type", "subAU", "dir", "units")) %>%
-  mutate(cost = operate_cost + canal_fee + escort_cost + fuel_cost + emiss_cost,
-         emiss_cost_prop = emiss_cost/cost) %>%
-  select(-c(Units, operate_cost, canal_fee, escort_cost, fuel_cost, emiss_cost))
-
-TotalCosts_AU <- TotalCosts_AU_prop %>%
-  select(-c(emiss_cost_prop, emiss, cPrice))
+# TotalCosts_AU_prop <- TotalCosts_AU_noC_ref %>%
+#   filter(rcp == "2p6") %>%
+#   mutate(scen = "Pol") %>%
+#   rbind(TotalCosts_AU_noC_ref) %>%
+#   left_join(emiss_costs,
+#             by = c("year", "month", "scen", "rcp", "ens",
+#                    "ship_type", "subAU", "dir", "units")) %>%
+#   mutate(cost = operate_cost + canal_fee + escort_cost + fuel_cost + emiss_cost,
+#          emiss_cost_prop = emiss_cost/cost) %>%
+#   select(-c(Units, operate_cost, canal_fee, escort_cost, fuel_cost, emiss_cost))
+#
+# TotalCosts_AU <- TotalCosts_AU_prop %>%
+#   select(-c(emiss_cost_prop, emiss, cPrice))
 
 # costs split up by source
-TotalCosts_AU_sep <- TotalCosts_AU_noC_ref %>%
-  filter(rcp == "2p6") %>%
-  mutate(scen = "Pol") %>%
-  rbind(TotalCosts_AU_noC_ref) %>%
-  left_join(emiss_costs,
-            by = c("year", "month", "scen", "rcp", "ens",
-                   "ship_type", "subAU", "dir"))
+# TotalCosts_AU_sep <- TotalCosts_AU_noC_ref %>%
+#   filter(rcp == "2p6") %>%
+#   mutate(scen = "Pol") %>%
+#   rbind(TotalCosts_AU_noC_ref) %>%
+#   left_join(emiss_costs,
+#             by = c("year", "month", "scen", "rcp", "ens",
+#                    "ship_type", "subAU", "dir"))
 
 
 
@@ -640,7 +674,7 @@ route_choice_AU <- TotalCosts_AU %>%
                                              "ship_type", "subAU", "dir")) %>%
   filter(navigable) %>%
   # convert cost to millions USD
-  mutate(cost = cost/1000, units = "millions 2015$") %>%
+  mutate(cost = cost*CostScale, units = "millions 2015$") %>%
   pivot_wider(names_from = dir, values_from = cost) %>%
   mutate(East_choice = case_when(
     # when one route is passable and the other is not, always choose
@@ -651,9 +685,8 @@ route_choice_AU <- TotalCosts_AU %>%
     T ~ exp(beta_1*East)/(exp(beta_1*East) + exp(beta_1*West))
     #East > West ~ 0,
     #T ~ 1
-    ),
-  West_choice = 1-East_choice) #%>%
-  #select(-c(East,West))
+  ),
+  West_choice = 1-East_choice)
 
 # check for NaNs
 if(nrow(route_choice_AU %>% filter(is.nan(West_choice)|is.nan(East_choice))) > 0){
@@ -698,7 +731,8 @@ RussiaOilShipped_shares <- RussiaOilProdn_TotalShippedYr %>%
 
 NumbTripsNeeded_Month <- RussiaOilProdn_ShippedMonthly %>%
   left_join(rename(ShipLoadDWT, load = value), by = "ship_type") %>%
-  mutate(n_trips = 2*round(value/(Conv_BBL_TOE*load/1000000), digits = 0)) %>%
+  #mutate(n_trips = value/(Conv_BBL_TOE*load/1000000))
+  mutate(n_trips = 2*value/(Conv_BBL_TOE*load/1000000)) %>%
   select(-c(load, navigable, value))
 
 YearlyOutboundTrips <- NumbTripsNeeded_Month %>%
@@ -857,8 +891,8 @@ write_csv(route_choice_AU, "outputs/route_choice_AU.csv")
 
 
 # total operating costs per trip
-write_csv(TotalCosts_AU, "test_costs/TotalCosts_AU.csv")
+write_csv(TotalCosts_AU, "outputs/TotalCosts_AU.csv")
 
 # costs per trip split up by source
-write_csv(TotalCosts_AU_sep, "test_costs/TotalCosts_AU_sep.csv")
+write_csv(TotalCosts_AU_sep, "outputs/TotalCosts_AU_sep.csv")
 
