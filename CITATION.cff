@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: NSR Shipping Model
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Taryn
+    family-names: Waite
+  - given-names: Siwa
+    family-names: Msangi
+  - given-names: Ying
+    family-names: Zhang
+  - given-names: Molly
+    family-names: French
+  - given-names: Nazar
+    family-names: Kholod
+  - given-names: Jae
+    family-names: Edmonds
+  - given-names: Stephanie
+    family-names: Waldhoff
+repository-code: 'https://github.com/trwaite/NSR_shipping_model'
