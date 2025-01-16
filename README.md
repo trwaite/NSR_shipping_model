@@ -4,7 +4,7 @@
 <!-------------------------->
 <!-------------------------->
 
-`NSR_shipping_model` is a repository containing the R code used to project the economic competition between shipping goods along the Northern Sea Route (NSR) versus the Suez canal route (SCR) considering changing sea ice thickness and fuel costs. The repository includes scripts to produce theoretical route choice shares (NSR vs SCR) for shipments between Murmansk, Russia and Dongjiakou, China in Brelsford et al. (in prep) as well as quantity of shipments, shipping traffic along the NSR, and resulting CO2 emissions from the case study of shipping oil produced in the offshore Russian Arctic to Dongjiakou in Waite et al. (in review). 
+`NSR_shipping_model` is a repository containing the R code used to project the economic competition between shipping goods along the Northern Sea Route (NSR) versus the Suez canal route (SCR) considering changing sea ice thickness and fuel costs. The repository includes a script to project theoretical route choice shares (NSR vs SCR) for shipments between Murmansk, Russia and Dongjiakou, China (`route_choice_murmansk_dongjiakou.R`) used in Brelsford et al. (in prep) as well as a script projecting quantity of shipments, shipping traffic along the NSR, and resulting CO2 emissions from the case study of shipping oil produced in the offshore Russian Arctic to Dongjiakou (`shipping_model_arctic_oil`) used in Waite et al. (in prep). 
 
 
 The repository also contains code to generate gridded emissions data (netCDF files) along the NSR corresponding with the projected CO2 emissions from shipping.
