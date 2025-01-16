@@ -77,7 +77,7 @@ subAUSubZoneMap <- read_csv("inputs/mappings/subAUSubZoneMap.csv")
 
 # price inflator/deflator
 price_index <- read_csv("inputs/costs/price_conversions.csv",
-                        skip = 1)
+                              skip = 1)
 price_conversion <- price_index$`price deflator`
 names(price_conversion) <- price_index$year
 
@@ -161,10 +161,10 @@ IceBreakCosts_v2_ship <- IceBreakCosts_v2 %>%
 # convert costs to 2015 dollars
 FuelCostParams <- FuelCostParams_pre %>%
   filter(param != "BunkerFuelCost")
-# mutate(value = case_when(param == "BunkerFuelCost" ~ value*price_conversion["2015"]/price_conversion["2013"],
-#                          T ~ value),
-#        units = case_when(param == "BunkerFuelCost" ~ "2015$/ton",
-#                          T ~ units))
+  # mutate(value = case_when(param == "BunkerFuelCost" ~ value*price_conversion["2015"]/price_conversion["2013"],
+  #                          T ~ value),
+  #        units = case_when(param == "BunkerFuelCost" ~ "2015$/ton",
+  #                          T ~ units))
 
 # convert fuel price units and extrapolate to all years
 Fuel_Price_GCAM_allYears <- FuelPrice_GCAM %>%
@@ -212,18 +212,23 @@ projYrs <- unique(OilProdn$GCAM_period)
 AUs <- unique(OilProdn$AU)
 RusAUs <- AUs[grepl("rus", AUs)]
 
-# convert GCAM period projections to annual projections using trapezoidal rule
-# and convert to MTOW
+# convert GCAM period projections to annual projections using linear interpolation
+# and convert to MTOE
 OilProdn_1 <- OilProdn %>%
+  rename(year = GCAM_period) %>%
+  complete(nesting(AU, GCAMscen), year = SIT_years) %>%
+  arrange(AU, GCAMscen, year) %>%
   group_by(AU, GCAMscen) %>%
-  mutate(value = (value + lag(value))/2*Conv_EJ_MTOE,
+  # mutate(value = (value + lag(value))/2*Conv_EJ_MTOE,
+  #        units = "mtoe") %>%
+  mutate(value = gcamdata::approx_fun(year, value)*Conv_EJ_MTOE,
          units = "mtoe") %>%
   ungroup()
 
-OilProdn_2 <- OilProdn_1 %>%
-  left_join(MapProjYrs, by = "GCAM_period") %>%
-  select(AU, GCAMscen, year, units, value) %>%
-  drop_na()
+OilProdn_2 <- OilProdn_1 #%>%
+  # left_join(MapProjYrs, by = "GCAM_period") %>%
+  # select(AU, GCAMscen, year, units, value) %>%
+  # drop_na()
 
 # filter to just the Russian AUs and map to subAUs
 RussiaOilProdn <- OilProdn_2 %>%
@@ -612,9 +617,9 @@ CanalFeeCosts_AU <- OperateCosts_m_AU %>%
   left_join(CanalFee, by = "route") %>%
   rename(canal_fee = value) %>%
   select(-route)
-# repeat over scenarios (does not vary between ref and pol)
-#gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
-#filter(!(scen == "Pol" & rcp == "8p5"))
+  # repeat over scenarios (does not vary between ref and pol)
+  #gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
+  #filter(!(scen == "Pol" & rcp == "8p5"))
 
 # add up all costs
 TotalCosts_AU_sep <- OperateCosts_m_AU %>%
@@ -685,7 +690,7 @@ route_choice_AU <- TotalCosts_AU %>%
     T ~ exp(beta_1*East)/(exp(beta_1*East) + exp(beta_1*West))
     #East > West ~ 0,
     #T ~ 1
-  ),
+    ),
   West_choice = 1-East_choice)
 
 # check for NaNs
