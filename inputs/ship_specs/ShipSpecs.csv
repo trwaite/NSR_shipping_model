@@ -5,4 +5,4 @@ MaxSIT_SpeedRedn,10,10,1,1,cm
 MaxSIT_IBneed,30,40,1,1,cm
 MaxSIT_NoGo,75,105,1,1,cm
 MaxIceBreakSpeed,3,3,3,3,knots
-ShipLoadCapDWT,513921,519588,511518,1269115,tons
+ShipLoadCapDWT,513921,519588,511518,1269115,barrels
