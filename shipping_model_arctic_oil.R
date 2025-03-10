@@ -46,7 +46,7 @@ if(!dir.exists("figures")){
 
 # To run the model for a single year (useful for testing since the model
 # takes a lot of time and memory to run for all years)
-eval_single_year <- T
+eval_single_year <- F
 single_year <- 2100
 
 #...............................................................................
