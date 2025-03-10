@@ -7,6 +7,7 @@ CostScale <- 1e-6 # convert from dollars to millions of dollars for choice funct
 beta_1 <- -0.5 # logit choice function parameter
 delta <- 0.000001 # small pertubation for calibration of fuel consumption
 Co2emissnFactor <- 3179 # kg CO2 per tonne of fuel consumed
+discounted_fee <- 5 #USD/ton discounted ice breaker escort fee
 
 # conversions
 Conv_OilBBL_GJ <- 5.712
@@ -16,7 +17,7 @@ Conv_EJ_MTOE <- Conv_BBL_TOE/Conv_MMBO_EJ
 conv_C_CO2 <- 44/12
 Conv_m_cm <- 100
 conv_nm_km <- 1.852 # nautical miles to km
-conv_rub_usd_2014 <- 0.02649 #https://www.exchange-rates.org/exchange-rate-history/rub-usd-2014-12-19
+#conv_rub_usd_2014 <- 0.02649 #https://www.exchange-rates.org/exchange-rate-history/rub-usd-2014-12-19
 conv_kg_kt <- 10^-6
 conv_mmbtu_GJ <- 1.055
 conv_ton_mmbtu_bunker <- 40.2
@@ -45,7 +46,7 @@ if(!dir.exists("figures")){
 
 # To run the model for a single year (useful for testing since the model
 # takes a lot of time and memory to run for all years)
-eval_single_year <- F
+eval_single_year <- T
 single_year <- 2100
 
 #...............................................................................
@@ -84,6 +85,9 @@ names(price_conversion) <- price_index$year
 # ice breaker fees
 IceBreakCosts_v2 <- read_csv("inputs/costs/IceBreakCosts_v2.csv")
 
+# usd to rub exchange rates
+usd_rub_rates <- read_csv("inputs/costs/RUB_USD_exchange_rate.csv")
+
 # fuel consumption/ cost parameters
 FuelCostParams_pre <- read_csv("inputs/costs/FuelCostParams.csv") %>%
   pivot_longer(-c(param, units), names_to = "ship_type", values_to = "value") %>%
@@ -92,8 +96,8 @@ FuelCostParams_pre <- read_csv("inputs/costs/FuelCostParams.csv") %>%
 FuelPrice_GCAM <- read_csv("inputs/costs/fuel_prices_GCAM.csv") %>%
   rename(scen = scenario)
 
-OperatingCosts <- read_csv("inputs/costs/OperatingCosts.csv") %>%
-  pivot_longer(cols = -units, names_to = "route", values_to = "value")
+OperatingCosts <- read_csv("inputs/costs/OperatingCosts.csv", skip = 1) %>%
+  pivot_longer(cols = -units, names_to = "ship_class", values_to = "value")
 
 # suez canal fee
 CanalFee <- read_csv("inputs/costs/CanalFee.csv") %>%
@@ -153,7 +157,9 @@ IceBreakCosts_v2_ship <- IceBreakCosts_v2 %>%
   left_join(ShipLoadDWT, by = "ship_type") %>%
   # convert from rub to usd and get total tariff per ship
   # (tariffs are given on a per tonne basis)
-  mutate(fee = fee*conv_rub_usd_2014*value*Conv_BBL_TOE*price_conversion["2015"]/price_conversion["2014"],
+  gcamdata::repeat_add_columns(tibble(usd_rub = c("low", "base", "high"))) %>%
+  left_join(usd_rub_rates, by = "usd_rub") %>%
+  mutate(fee = fee/rate*value*Conv_BBL_TOE,
          units = "2015$") %>%
   select(-units.x, -units.y)
 
@@ -161,10 +167,6 @@ IceBreakCosts_v2_ship <- IceBreakCosts_v2 %>%
 # convert costs to 2015 dollars
 FuelCostParams <- FuelCostParams_pre %>%
   filter(param != "BunkerFuelCost")
-  # mutate(value = case_when(param == "BunkerFuelCost" ~ value*price_conversion["2015"]/price_conversion["2013"],
-  #                          T ~ value),
-  #        units = case_when(param == "BunkerFuelCost" ~ "2015$/ton",
-  #                          T ~ units))
 
 # convert fuel price units and extrapolate to all years
 Fuel_Price_GCAM_allYears <- FuelPrice_GCAM %>%
@@ -175,7 +177,7 @@ Fuel_Price_GCAM_allYears <- FuelPrice_GCAM %>%
   ungroup()
 
 
-OperatingCosts$value <- OperatingCosts$value*price_conversion["2015"]/price_conversion["2016"]
+OperatingCosts$value <- OperatingCosts$value*price_conversion["2015"]/price_conversion["2021"]
 OperatingCosts$units <- "2015$"
 
 CanalFee$units <- "2015$"
@@ -225,13 +227,8 @@ OilProdn_1 <- OilProdn %>%
          units = "mtoe") %>%
   ungroup()
 
-OilProdn_2 <- OilProdn_1 #%>%
-  # left_join(MapProjYrs, by = "GCAM_period") %>%
-  # select(AU, GCAMscen, year, units, value) %>%
-  # drop_na()
-
 # filter to just the Russian AUs and map to subAUs
-RussiaOilProdn <- OilProdn_2 %>%
+RussiaOilProdn <- OilProdn_1 %>%
   filter(grepl("rus", AU)) %>%
   left_join(subAU_oil_proportions, by = "AU") %>%
   mutate(value = value*proportion) %>%
@@ -497,7 +494,7 @@ Emissions_subz_IB <- Days_subz %>%
 Emissions_subz <- Emissions_subz_vessel %>%
   left_join(Emissions_subz_IB, by = c("year", "month", "ens", "rcp",
                                       "ship_type", "subzone")) %>%
-  mutate(emiss = if_else(is.na(emiss_IB), emiss, emiss + emiss_IB)) %>%
+  #mutate(emiss = if_else(is.na(emiss_IB), emiss, emiss + emiss_IB)) %>%
   select(-emiss_IB)
 
 # calculate non-NSR emissions per trip
@@ -564,7 +561,7 @@ emiss_costs <- Emiss_total_perTrip %>%
 # escort costs
 # calculate number of zones for which escort is needed
 # and select the relevant fee
-EscortCost_AU2 <- filter(AUSubZoneEastWest, traversed) %>%
+EscortCost_AU2_undiscounted <- filter(AUSubZoneEastWest, traversed) %>%
   select(-traversed) %>%
   # get just subzones needing ice breaker
   left_join(filter(indicIceBreak_subz, IB_needed), by = "subzone") %>%
@@ -578,10 +575,23 @@ EscortCost_AU2 <- filter(AUSubZoneEastWest, traversed) %>%
   ungroup() %>%
   # join with ice breaker costs and apply the relevant fee
   left_join(IceBreakCosts_v2_ship, by = c("month", "ship_type", "n_zones")) %>%
-  select(year, month, ens, rcp, ship_type, dir, subAU, units, escort_cost = fee) %>%
+  select(year, month, ens, rcp, ship_type, dir, usd_rub, subAU, units, escort_cost = fee) %>%
   # repeat over scenarios (does not vary between ref and pol)
   gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
   filter(!(scen == "Pol" & rcp == "8p5"))
+
+# calculate discounted escort costs for cases where any number of zones are needed
+EscortCost_AU2_discounted <-
+  EscortCost_AU2_undiscounted %>%
+  filter(usd_rub == "base") %>%
+  left_join(ShipLoadDWT %>% select(-units),
+            by = "ship_type") %>%
+  mutate(usd_rub = "discounted",
+         escort_cost = discounted_fee*value*Conv_BBL_TOE) %>%
+  select(-value)
+
+# combine undiscounted and discounted fees
+EscortCost_AU2 <- rbind(EscortCost_AU2_undiscounted, EscortCost_AU2_discounted)
 
 # operating costs
 
@@ -595,16 +605,17 @@ DaysRoute_totNSR <- Days_subz %>%
 
 # add non-NSR days for each route
 DaysRoute_tot <- DaysRoute_totNSR %>%
-  left_join(DaysTravelOutsideNSR, by = c("dir", "ship_type")) %>%
+  left_join(DaysTravelOutsideNSR,
+            by = c("dir", "ship_type")) %>%
   mutate(days = days.x + days.y) %>%
   select(-c(days.x, days.y))
 
 OperateCosts_m_AU <- DaysRoute_tot %>%
   # using rteA1 costs for both east and West routes
-  mutate(route = "rteA1") %>%
-  left_join(OperatingCosts, by = "route") %>%
+  mutate(ship_class = "ice_class") %>%
+  left_join(OperatingCosts, by = "ship_class") %>%
   mutate(operate_cost = value*days) %>%
-  select(-c(days, value, route)) %>%
+  select(-c(days, value, ship_class)) %>%
   # repeat over scenarios (does not vary between ref and pol)
   gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
   filter(!(scen == "Pol" & rcp == "8p5"))
@@ -617,9 +628,7 @@ CanalFeeCosts_AU <- OperateCosts_m_AU %>%
   left_join(CanalFee, by = "route") %>%
   rename(canal_fee = value) %>%
   select(-route)
-  # repeat over scenarios (does not vary between ref and pol)
-  #gcamdata::repeat_add_columns(tibble(scen = c("Ref", "Pol"))) %>%
-  #filter(!(scen == "Pol" & rcp == "8p5"))
+
 
 # add up all costs
 TotalCosts_AU_sep <- OperateCosts_m_AU %>%
@@ -629,8 +638,10 @@ TotalCosts_AU_sep <- OperateCosts_m_AU %>%
   left_join(CanalFeeCosts_AU,
             by = c('year', "month", "ens", "rcp", "scen", "ship_type",
                    "subAU", "dir", "units")) %>%
+  # add the high/base/low usd-rub rates for joining with escort costs
+  gcamdata::repeat_add_columns(tibble(usd_rub = c("low", "base", "high", "discounted"))) %>%
   left_join(EscortCost_AU2,
-            by = c('year', "month", "ens", "rcp", "scen", "ship_type",
+            by = c('year', "month", "ens", "rcp", "scen", "ship_type", "usd_rub",
                    "subAU", "dir", "units")) %>%
   left_join(emiss_costs,
             by = c("year", "month", "ens", "rcp", "scen", "ship_type",
@@ -642,31 +653,6 @@ TotalCosts_AU_sep <- OperateCosts_m_AU %>%
 
 TotalCosts_AU <- TotalCosts_AU_sep %>%
   select(-c(operate_cost, canal_fee, escort_cost, fuel_cost, emiss_cost))
-
-# add in the 2p6 policy scenario (above costs don't vary by scenario, but
-# emissions costs below do)
-# TotalCosts_AU_prop <- TotalCosts_AU_noC_ref %>%
-#   filter(rcp == "2p6") %>%
-#   mutate(scen = "Pol") %>%
-#   rbind(TotalCosts_AU_noC_ref) %>%
-#   left_join(emiss_costs,
-#             by = c("year", "month", "scen", "rcp", "ens",
-#                    "ship_type", "subAU", "dir", "units")) %>%
-#   mutate(cost = operate_cost + canal_fee + escort_cost + fuel_cost + emiss_cost,
-#          emiss_cost_prop = emiss_cost/cost) %>%
-#   select(-c(Units, operate_cost, canal_fee, escort_cost, fuel_cost, emiss_cost))
-#
-# TotalCosts_AU <- TotalCosts_AU_prop %>%
-#   select(-c(emiss_cost_prop, emiss, cPrice))
-
-# costs split up by source
-# TotalCosts_AU_sep <- TotalCosts_AU_noC_ref %>%
-#   filter(rcp == "2p6") %>%
-#   mutate(scen = "Pol") %>%
-#   rbind(TotalCosts_AU_noC_ref) %>%
-#   left_join(emiss_costs,
-#             by = c("year", "month", "scen", "rcp", "ens",
-#                    "ship_type", "subAU", "dir"))
 
 
 
@@ -712,19 +698,19 @@ RussiaOilProdn_ShippedMonthly <- RussiaOilProdn_Monthly %>%
 
 # calculate total oil shipped in each direction from each AU, by year
 RussiaOilProdn_ShippedYr <- RussiaOilProdn_ShippedMonthly %>%
-  group_by(year, scen, ens, rcp, ship_type, subAU, dir) %>%
+  group_by(year, scen, ens, rcp, usd_rub, ship_type, subAU, dir) %>%
   summarize(value = sum(value)) %>%
   ungroup()
 
 # calculate total oil shipped in each direction by year (all AUs combined)
 RussiaOilProdn_TotalShippedYr <- RussiaOilProdn_ShippedYr %>%
-  group_by(year, scen, ens, rcp, ship_type, dir) %>%
+  group_by(year, scen, ens, rcp, usd_rub, ship_type, dir) %>%
   summarize(value = sum(value)) %>%
   ungroup()
 
 # calculate shares of total oil produced that are shipped in either direction
 RussiaOilShipped_shares <- RussiaOilProdn_TotalShippedYr %>%
-  group_by(year, scen, ens, rcp, ship_type) %>%
+  group_by(year, scen, ens, rcp, usd_rub, ship_type) %>%
   summarize(shipped = sum(value)) %>%
   ungroup() %>%
   left_join(RussiaOilProdnTotal %>% rename(prod = value),
@@ -741,7 +727,7 @@ NumbTripsNeeded_Month <- RussiaOilProdn_ShippedMonthly %>%
   select(-c(load, navigable, value))
 
 YearlyOutboundTrips <- NumbTripsNeeded_Month %>%
-  group_by(year, ens, scen, rcp, ship_type, dir) %>%
+  group_by(year, ens, scen, rcp, usd_rub, ship_type, dir) %>%
   # divide by 2 for just outbound trips (don't include returns)
   summarize(value = sum(n_trips/2)) %>%
   ungroup()
@@ -765,10 +751,10 @@ NSR_dist_traveled_total <- NSR_dist_traveled_sz %>%
 NSR_tonne_km_AU <- RussiaOilProdn_ShippedYr %>%
   left_join(NSR_dist_traveled_total, by = c("subAU", "dir")) %>%
   mutate(tonne_km = value*dist*conv_nm_km) %>%
-  select(year, scen, ens, rcp, ship_type, subAU, dir, tonne_km)
+  select(year, scen, ens, rcp, usd_rub, ship_type, subAU, dir, tonne_km)
 
 NSR_tonne_km_total <- NSR_tonne_km_AU %>%
-  group_by(year, scen, ens, rcp, ship_type) %>%
+  group_by(year, scen, ens, rcp, usd_rub, ship_type) %>%
   summarize(tonne_km = sum(tonne_km, na.rm = T)) %>%
   ungroup()
 
@@ -776,7 +762,7 @@ NSR_tonne_km_total <- NSR_tonne_km_AU %>%
 NSR_tonne_km_sz <- RussiaOilProdn_ShippedYr %>%
   left_join(NSR_dist_traveled_sz, by = c("subAU", "dir")) %>%
   mutate(tonne_km = value*dist*conv_nm_km) %>%
-  group_by(year, scen, ens, rcp, ship_type, dir, subzone) %>%
+  group_by(year, scen, ens, rcp, usd_rub, ship_type, dir, subzone) %>%
   summarize(tonne_km = sum(tonne_km)) %>%
   ungroup()
 
@@ -784,7 +770,7 @@ NSR_tonne_km_sz <- RussiaOilProdn_ShippedYr %>%
 ## ship-km by subzone ==========================================================
 ship_km_sz <- NumbTripsNeeded_Month %>%
   # get number of trips per year by subAU
-  group_by(year, ens, scen, rcp, ship_type, dir, subAU) %>%
+  group_by(year, ens, scen, rcp, usd_rub, ship_type, dir, subAU) %>%
   summarise(n_trips = sum(n_trips)) %>%
   ungroup() %>%
   # join with dist traveled per subzone
@@ -792,7 +778,7 @@ ship_km_sz <- NumbTripsNeeded_Month %>%
   # multiply distance by number of trips to get ship-km
   mutate(ship_km = n_trips*dist*conv_nm_km) %>%
   # sum over subAUs
-  group_by(scen, ens, rcp, year, ship_type, dir, subzone) %>%
+  group_by(scen, ens, rcp, usd_rub, year, ship_type, dir, subzone) %>%
   summarize(n_trips = sum(n_trips), ship_km = sum(ship_km)) %>%
   ungroup()
 
@@ -808,13 +794,13 @@ Emissions_Yr_sz <- NumbTripsNeeded_Month %>%
                                    "subzone")) %>%
   mutate(emiss = emiss*n_trips) %>%
   # sum over AUs and months
-  group_by(year, ens, rcp, scen, ship_type, dir, subzone) %>%
+  group_by(year, ens, rcp, scen, usd_rub, ship_type, dir, subzone) %>%
   summarize(emiss = sum(emiss)) %>%
   ungroup()
 
 # total NSR emissions by year (sum over subzones)
 Emissions_Yr_NSR <- Emissions_Yr_sz %>%
-  group_by(year, ens, rcp, scen, ship_type, dir) %>%
+  group_by(year, ens, rcp, scen, usd_rub, ship_type, dir) %>%
   summarize(emiss = sum(emiss)) %>%
   ungroup()
 
@@ -829,7 +815,7 @@ Emiss_nonNSR_yr <- NumbTripsNeeded_Month %>%
   filter(n_trips > 0) %>%
   left_join(Emiss_nonNSR_perTrip, by = c("ship_type", "dir")) %>%
   mutate(emiss = emiss*n_trips) %>%
-  group_by(year, ens, rcp, scen, ship_type, dir) %>%
+  group_by(year, ens, rcp, scen, usd_rub, ship_type, dir) %>%
   summarize(emiss = sum(emiss)) %>%
   ungroup()
 
@@ -837,7 +823,7 @@ Emiss_nonNSR_yr <- NumbTripsNeeded_Month %>%
 Emissions_Yr_total <- Emissions_Yr_NSR %>%
   rename(NSR = emiss) %>%
   left_join(Emiss_nonNSR_yr %>% rename(non_NSR = emiss),
-            by = c("year", "ens", "rcp", "scen", "dir", "ship_type")) %>%
+            by = c("year", "ens", "rcp", "scen", "usd_rub", "dir", "ship_type")) %>%
   pivot_longer(c(NSR, non_NSR), names_to = "section", values_to = "value")
 
 
