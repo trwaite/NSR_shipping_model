@@ -93,7 +93,7 @@ ggsave(paste0(fig_dir, "/oil_production.png"), width = 10, height = 4, units = "
 route_nav <- read_csv(paste0(out_dir, "/NavigableEastWest_AUsubZ.csv"))
 
 # read in oil production by subzone
-oil_prod <- read_csv(paste0(out_dir,"/RussiaOilProdn_1.csv")) %>%
+oil_prod <- read_csv(paste0(out_dir,"/RussiaOilProdn_subAU.csv")) %>%
   group_by(year, subAU, scen, rcp) %>%
   summarize(value = mean(value)) %>%
   ungroup()
