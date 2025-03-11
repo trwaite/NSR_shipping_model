@@ -2,7 +2,7 @@ library(tidyverse)
 
 out_dir <- "outputs"
 
-fig_dir <- "figures_final"
+fig_dir <- "figures"
 
 conv_mmbtu_GJ <- 1.055
 conv_ton_mmbtu_bunker <- 40.2
