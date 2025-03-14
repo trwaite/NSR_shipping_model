@@ -4,7 +4,7 @@
 <!-------------------------->
 <!-------------------------->
 
-`NSR_shipping_model` is a repository containing the R code used to project the economic competition between shipping goods along the Northern Sea Route (NSR) versus the Suez canal route (SCR) considering changing sea ice thickness and fuel costs. The repository includes a script to project theoretical route choice shares (NSR vs SCR) for shipments between Murmansk, Russia and Dongjiakou, China (`route_choice_murmansk_dongjiakou.R`) used in Brelsford et al. (in prep) as well as a script projecting quantity of shipments, shipping traffic along the NSR, and resulting CO2 emissions from the case study of shipping oil produced in the offshore Russian Arctic to Dongjiakou (`shipping_model_arctic_oil`) used in Waite et al. (in prep). 
+`NSR_shipping_model` is a repository containing the R code used to project the economic competition between shipping goods along the Northern Sea Route (NSR) versus the Suez canal route (SCR) considering changing sea ice thickness and fuel costs. The repository includes a script to project theoretical route choice shares (NSR vs SCR) for shipments between Murmansk, Russia and Dongjiakou, China (`route_choice_murmansk_dongjiakou.R`) used in Brelsford et al. (in prep) as well as a script projecting quantity of shipments, shipping traffic along the NSR, and resulting CO2 emissions from the case study of shipping oil produced in the offshore Russian Arctic to Dongjiakou (`shipping_model_arctic_oil.R`) used in Waite et al. (in prep). 
 
 
 The repository also contains code to generate gridded emissions data (netCDF files) along the NSR corresponding with the projected CO2 emissions from shipping.
@@ -31,7 +31,7 @@ The cost for a vessel to traverse the NSR consists of (1) the cost of fuel consu
    The cost of fuel is calculated as the fuel consumption multiplied by the fuel price, which can vary over time.
    
 3. Vessels are assumed to travel at their maximum speed outside of the NSR (in the absence of sea ice) and consume fuel accordingly.
-4. Ice breaker escort fees follow the tariff levels published by the Russian government, which depend on the season and the number of NSR zones in which an escort is needed.
+4. Ice breaker escort fees follow the tariff levels published by the Russian government, which depend on the season and the number of NSR zones in which an escort is needed. We include a sensitivity analysis of the icebreaker escort fees, with base, high, and low USD/RUB exchange rates as well as a discounted fee case.
 5. Operation fees depend on the duration of the transit and a constant daily operation cost (a parameter).
 6. The Suez canal fee is applied for the Suez Canal Route only.
 7. In low carbon transition scenarios, the corresponding carbon price is applied to the total shipping CO2 emissions, calculated as explained below.
@@ -43,3 +43,15 @@ CO2 emissions from a shipment traversing a given route are calculated based on t
 When any subzone of the NSR has sea ice thickness above the navigability threshold in a given month, all shipments are assumed to traverse the SCR. Otherwise, the proportion of shipments traversing the NSR ($`P_{NSR}`$) versus the SCR is projected using a logit choice function applied to the comparative costs of shipping over the NSR ($`C_{NSR}`$) and the SCR ($`C_{SCR}`$). The logit exponent parameter $`\beta`$ can be varied to represent different elasticities as in Brelsford et al. (in prep):
 
 $`P_{NSR}=\frac{\exp{\left(-\beta*C_{NSR}\right)}}{\exp{\left(\beta*C_{NSR}\right)}+\exp{\left(\beta*C_{SCR}\right)}}`$
+
+<!-------------------------->
+<!-------------------------->
+# <a name="How to run experiments"></a>Methods
+<!-------------------------->
+<!-------------------------->
+
+## Route choice shares
+To run an experiment analyzing route choice shares for a theoretical shipment from Murmansk, Russia to Dongjiakou, China, run the `route_choice_murmansk_dongjiakou.R` script. By default, the script will produce results for a list of sensitivity values for the beta parameter (i.e., logit exponenet parameter in the economic choice model) and the shareweight parameter. To change these values, make changes to `betas` and `share_weights`.
+
+## Arctic offshore oil shipments
+To run an experiment analyzing route choice, number of shipments, shipping traffic, and CO2 emissions resulting from projected production of Arctic offshore oil produced in Russia and shipped to China, run the `shipping_model_arctic_oil.R` script. Note that this analysis uses a lot of memory due to large data tables being generated, so there is an option to run the analysis for only a single year (`eval_single_year`) for local testing.
