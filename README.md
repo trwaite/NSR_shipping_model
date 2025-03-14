@@ -46,7 +46,7 @@ $`P_{NSR}=\frac{\exp{\left(-\beta*C_{NSR}\right)}}{\exp{\left(\beta*C_{NSR}\righ
 
 <!-------------------------->
 <!-------------------------->
-# <a name="How to run experiments"></a>Methods
+# <a name="How to run experiments"></a>How to run experiments
 <!-------------------------->
 <!-------------------------->
 
